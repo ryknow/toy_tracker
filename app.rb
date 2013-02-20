@@ -1,8 +1,9 @@
 require 'sinatra'
-require_relative './app/controllers.rb'
+require_relative './app/application.rb'
 
 
 get '/' do
+  @toy_types = ToyTypeController.index
   haml :index
 end
 
