@@ -1,5 +1,6 @@
 require 'sinatra'
-require_relative './app/controllers/toy_controller'
+require_relative './app/controllers.rb'
+
 
 get '/' do
   haml :index

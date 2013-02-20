@@ -3,5 +3,10 @@ a.thumbnail {
 }
 
 #toy-name {
-  vertical-align: baseline;
+  height: 30px;
+}
+
+#talking {
+  margin-left: 30%;
+  margin-top:  10px;
 }

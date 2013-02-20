@@ -1,8 +1,25 @@
 .well
-  %form
-    %label 
-      Name:
-      %input{:type => "text", :id => "toy-name"}
+  .row
+    .span3
+      %label{:for => "toy-name"} Name:
+      %input{:type => "text", :id => "toy-name", :name => "toy-name"}
+    .span3
+      %label{:for => "toy-material"} Material:
+      %select{:id => "toy-material", :name => "toy-material"}
+        %option= "DieCast"
+        %option= "Wood"
+    .span1
+      %label{:for => "talking"} Talking?
+      %input{:type => "checkbox", :name => "talking", :id => "talking"}
+    .span3
+      %label{:for => "toy-size"} Size
+      %select{:id => "toy-size", :name => "toy-size"}
+        %option= "Normal"
+        %option= "Oversized"
+  .row
+    .span6
+      %button{:type => "button", :class => "btn btn-primary", :id => "add-toy"} Add Toy
+
 
 %table{:class => "table table-striped table-bordered table-hover"}
   %thead
