@@ -1,5 +1,5 @@
 %ul{:class => "thumbnails"}
-  - @toy_types.each do |toy_type|
+  - toy_types.each do |toy_type|
     %li{:class => "span6"}
       %a{:class => "thumbnail", :href => "toys/#{ toy_type[:name] }"}
         %img{:src => "images/#{ toy_type[:img] }"}

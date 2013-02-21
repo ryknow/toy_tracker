@@ -1,0 +1,6 @@
+development:
+  sessions:
+    default:
+      database: toy_tracker
+      hosts:
+        - localhost:27017
