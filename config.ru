@@ -1,3 +1,3 @@
-require 'toy_tracker'
+require './toy_tracker.rb'
 
 run ToyTracker.new
