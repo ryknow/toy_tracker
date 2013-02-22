@@ -10,3 +10,24 @@ a.thumbnail {
   margin-left: 30%;
   margin-top:  10px;
 }
+
+.page-title {
+  font-family: 'Shadows Into Light Two', cursive;
+  font-size: 100px;
+  text-align: center;
+  padding: 45px 45px 25px;
+}
+
+.index-thumb {
+  max-height: 400px;
+  width: auto;
+}
+
+.center-img {
+  display: table;
+  margin: 0 auto !important;
+}
+
+.actions-td {
+  width: 70px;
+}

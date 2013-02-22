@@ -4,9 +4,9 @@ ruby "1.9.3"
 
 gem 'sinatra'
 gem 'mongoid'
-gem 'haml'
 gem 'rake'
 gem 'thin'
+gem 'haml'
 
 group :development, :test do
   gem 'rspec'

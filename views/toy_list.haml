@@ -29,9 +29,13 @@
     %th Material
     %th Talking?
     %th Size
+    %th 
   - toys.each do |toy|
     %tr
       %td= toy[:name]
       %td= toy[:material]
       %td= toy[:talking]
       %td= toy[:size]
+      %td{:class => "actions-td"}
+        %button{:class => "delete-button btn", :id => "#{toy[:_id]}"}
+          Delete
