@@ -6,7 +6,7 @@ require 'mongoid'
 Dir['./models/*.rb'].each {|file| require file }
 
 # Load mongoid configuration
-Mongoid.load!("./config/mongoid.yml", :development)
+Mongoid.load!("./config/mongoid.yml")
 
 
 class ToyTracker < Sinatra::Base
@@ -19,11 +19,18 @@ class ToyTracker < Sinatra::Base
                                 :toy_type => params[:type]}
   end
 
-  post 'toys/:type' do
-    toy      = Toy.create(params[:toy])
+  post '/toys/:type' do
+    toy      = Toy.new(name:    params["toy-name"], 
+                       material:params["toy-material"],
+                       talking: params["talking"] == "on",
+                       size:    params["toy-size"])
     toy_type = ToyType.where(name: params[:type]).first
     toy_type.toys << toy
     toy_type.save!
-    haml :toy_list
+    redirect to("/toys/#{params[:type]}")
+  end
+
+  delete '/toys/:type/:id' do
+    # Does nothing yet
   end
 end
