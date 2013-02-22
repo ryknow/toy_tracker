@@ -1,11 +1,4 @@
 development:
   sessions:
     default:
-      database: toy_tracker
-      hosts:
-        - localhost:27017
-
-production:
-  sessions:
-    default:
       uri: <%= ENV['MONGOHQ_URL'] %>
