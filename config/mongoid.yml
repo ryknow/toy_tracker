@@ -8,5 +8,4 @@ development:
 production:
   sessions:
     default:
-      database: toy_tracker
       uri: <%= ENV['MONGOHQ_URL'] %>
