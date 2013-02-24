@@ -21,14 +21,27 @@ describe "Toy Tracker Application" do
 
 
       describe "POST" do
-        let(:toy) { FactoryGirl.create :toy }
+        before(:each) do
+          @request = {
+            "toy-name"     => "newtoy",
+            "toy-material" => "wood",
+            "talking"      => "on",
+            "toy-size"     => "normal"
+          }
+        end
 
-        it "should return 200" do
+        let(:type) { FactoryGirl.create :toy_type }
+        let(:toy)  { FactoryGirl.create :toy }
 
+        it "should return 302 due to redirect" do
+          post "/toys/#{type.name}", @request
+          last_response.status.should eq(302)
         end
 
         it "should create a new embedded Toy" do
-
+          post "/toys/#{type.name}", @request
+          toys = ToyType.where(name: type.name).first.toys
+          toys.map(&:name).should include("newtoy")
         end
       end
 
