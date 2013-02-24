@@ -33,4 +33,8 @@ class ToyTracker < Sinatra::Base
   delete '/toys/:type/:id' do
     # Does nothing yet
   end
+
+  put 'toys/:type/:id' do
+    # Does nothing yet
+  end
 end

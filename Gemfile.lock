@@ -11,8 +11,11 @@ GEM
     builder (3.0.4)
     coderay (1.0.9)
     daemons (1.1.9)
+    database_cleaner (0.9.1)
     diff-lcs (1.1.3)
     eventmachine (1.0.0)
+    factory_girl (4.2.0)
+      activesupport (>= 3.0.0)
     ffi (1.4.0)
     guard (1.6.2)
       listen (>= 0.6.0)
@@ -41,6 +44,8 @@ GEM
     rack (1.5.2)
     rack-protection (1.3.2)
       rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
     rake (10.0.3)
     rb-inotify (0.9.0)
       ffi (>= 0.5.0)
@@ -77,9 +82,12 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  database_cleaner
+  factory_girl
   guard
   haml
   mongoid
+  rack-test
   rake
   rb-inotify
   rspec

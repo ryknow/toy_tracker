@@ -9,10 +9,13 @@ gem 'thin'
 gem 'haml'
 
 group :development, :test do
+  gem 'rack-test'
   gem 'rspec'
   gem 'guard'
   gem 'rb-inotify'
   gem 'shotgun'
   gem 'simplecov'
   gem 'awesome_print'
+  gem 'factory_girl'
+  gem 'database_cleaner'
 end
