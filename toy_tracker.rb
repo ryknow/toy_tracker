@@ -29,7 +29,7 @@ class ToyTracker < Sinatra::Base
     if toy_type.save!
       redirect to("/toys/#{params[:type]}")
     else
-      {"status": 400, "Content-Type": "text/plain"}
+      status 400
     end
   end
 
