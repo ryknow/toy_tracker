@@ -26,15 +26,25 @@ class ToyTracker < Sinatra::Base
                        size:     params["toy-size"])
     toy_type = ToyType.where(name: params[:type]).first
     toy_type.toys << toy
-    toy_type.save!
-    redirect to("/toys/#{params[:type]}")
+    if toy_type.save!
+      redirect to("/toys/#{params[:type]}")
+    else
+      {"status": 400, "Content-Type": "text/plain"}
+    end
   end
 
   delete '/toys/:type/:id' do
-    # Does nothing yet
+    toy      = Toy.find(params[:id])
+    toy_type = ToyType.where(name: params[:type]).first
+    toy_type.toys.delete(toy)
   end
 
   put 'toys/:type/:id' do
-    # Does nothing yet
+    toy_type = ToyType.where(name: params[:type]).first
+    toy      = toy_type.toys.find(params[:id])
+    toy.update_attributes!(name:     params["toy-name"], 
+                           material: params["toy-material"],
+                           talking:  params["talking"] == "on",
+                           size:     params["toy-size"])
   end
 end
