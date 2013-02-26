@@ -1,5 +1,6 @@
+env:
+  - RACK_ENV=travis
 language: ruby
 rvm:
   - 1.9.3
-env:
-  - RACK_ENV=travis
+services: mongodb
