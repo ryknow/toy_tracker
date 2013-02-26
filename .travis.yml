@@ -1,6 +1,6 @@
-services: 
-  - mongodb
 rvm:
   - 1.9.3
 env:
   - RACK_ENV=travis
+services: 
+  - mongodb
