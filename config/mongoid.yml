@@ -3,6 +3,12 @@ development:
     default:
       uri: <%= ENV['MONGOHQ_URL'] %>
 
+travis:
+  sessions:
+    default:
+      host: localhost
+      database: mongoid_test
+
 test:
   sessions:
     default:
