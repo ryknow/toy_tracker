@@ -3,17 +3,12 @@ development:
     default:
       uri: <%= ENV['MONGOHQ_URL'] %>
 
-travis:
+test:
   sessions:
     default:
       host: localhost
       database: mongoid_test
-
-test:
-  sessions:
-    default:
-      uri: "mongodb://<%= ENV['MONGO_TEST_USER'] %>:<%= ENV['MONGO_TEST_PASSWORD'] %>@linus.mongohq.com:10098/toy_tracker_test"
-
+      
 production:
   sessions:
     default:
