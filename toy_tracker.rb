@@ -20,10 +20,7 @@ class ToyTracker < Sinatra::Base
   end
 
   post '/toys/:type' do
-    toy      = Toy.new(name:     params["toy-name"], 
-                       material: params["toy-material"],
-                       talking:  params["talking"] == "on",
-                       size:     params["toy-size"])
+    toy = Toy.new(params)
     toy_type = ToyType.where(name: params[:type]).first
     toy_type.toys << toy
     if toy_type.save!
@@ -42,9 +39,6 @@ class ToyTracker < Sinatra::Base
   put 'toys/:type/:id' do
     toy_type = ToyType.where(name: params[:type]).first
     toy      = toy_type.toys.find(params[:id])
-    toy.update_attributes!(name:     params["toy-name"], 
-                           material: params["toy-material"],
-                           talking:  params["talking"] == "on",
-                           size:     params["toy-size"])
+    toy.update_attributes!(params)
   end
 end
