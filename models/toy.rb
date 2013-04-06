@@ -3,10 +3,8 @@ class Toy
 
   embedded_in :toy_type
 
-  field :name,     type: String
-  field :material, type: String
-  field :talking,  type: Boolean
-  field :size,     type: String
+  field :name,        type: String
+  field :description, type: String
 
   validates_presence_of :name
 end

@@ -19,7 +19,15 @@ class ToyTracker < Sinatra::Base
                                 :toy_type => params[:type]}
   end
 
+  get '/toys/:type/toy-search' do
+    toys = ToyType.where(name: params[:type]).first.toys.any_of({name: /#{params[:search_text]}/}, {description: /#{params[:search_text]}/})
+    puts "TOYS COUNT: #{toys.count}"    
+    haml :toy_list, :locals => {:toys => toys,
+                                :toy_type => params[:type]}
+  end
+
   post '/toys/:type' do
+    # TODO: Validate uniqueness of combination of name and description for a toy
     toy = Toy.new(params)
     toy_type = ToyType.where(name: params[:type]).first
     toy_type.toys << toy
