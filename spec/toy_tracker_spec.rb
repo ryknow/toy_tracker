@@ -23,15 +23,13 @@ describe "Toy Tracker Application" do
       describe "POST" do
         before(:each) do
           @request = {
-            "toy-name"     => "newtoy",
-            "toy-material" => "wood",
-            "talking"      => "on",
-            "toy-size"     => "normal"
+            "name"         => "newtoy",
+            "description"  => "This is a new toy for testing"
           }
         end
 
         let(:type) { FactoryGirl.create :toy_type }
-        let(:toy)  { FactoryGirl.create :toy }
+        let(:toy)  { FactoryGirl.build :toy }
 
         it "should return 302 due to redirect" do
           post "/toys/#{type.name}", @request

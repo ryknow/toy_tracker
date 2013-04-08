@@ -1,8 +1,6 @@
 FactoryGirl.define do
   factory :toy do
-    name      'Test Toy'
-    material  'Tungesten'
-    talking   true
-    size      'Abnormally Large'
+    name         "Test Toy"
+    description  "This is a test toy"
   end
 end

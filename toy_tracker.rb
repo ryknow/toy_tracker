@@ -15,13 +15,12 @@ class ToyTracker < Sinatra::Base
   end
 
   get '/toys/:type' do
-    haml :toy_list, :locals => {:toys => ToyType.where(name: params[:type]).first.toys,
+    haml :toy_list, :locals => {:toys => ToyType.where(name: params[:type]).first.toys.order_by(name: 1),
                                 :toy_type => params[:type]}
   end
 
   get '/toys/:type/toy-search' do
-    toys = ToyType.where(name: params[:type]).first.toys.any_of({name: /#{params[:search_text]}/}, {description: /#{params[:search_text]}/})
-    puts "TOYS COUNT: #{toys.count}"    
+    toys = ToyType.where(name: params[:type]).first.toys.any_of({name: /#{params[:search_text]}/}, {description: /#{params[:search_text]}/}).order_by(name: 1)
     haml :toy_list, :locals => {:toys => toys,
                                 :toy_type => params[:type]}
   end
